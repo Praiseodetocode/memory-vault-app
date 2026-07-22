@@ -19,7 +19,7 @@ export default function FileUpload({ user, supabase }) {
       const filePath = `${user.id}/${fileName}`;
 
       const { error: uploadError } = await supabase.storage
-        .from('vault-files')
+        .from('user-files')
         .upload(filePath, file);
 
       if (uploadError) {
