@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function Dashboard({ session, supabase }) {
+export default function Dashboard({ user, supabase }) {
   return (
     <div style={{ maxWidth: '600px', margin: '50px auto', padding: '20px', background: '#111', color: '#fff', borderRadius: '8px' }}>
       <h2>Welcome to Your Vault</h2>
-      <p style={{ color: '#aaa' }}>Logged in as: {session.user.email}</p>
+      <p style={{ color: '#aaa' }}>Logged in as: {user.email}</p>
       
       <div style={{ marginTop: '30px', padding: '20px', background: '#222', borderRadius: '6px' }}>
         <h3>Your Memory Vault is Active</h3>
