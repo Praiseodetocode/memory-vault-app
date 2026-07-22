@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import Auth from './Auth';
 import Dashboard from './Dashboard';
 
-// Replace with YOUR Supabase keys (get from Supabase dashboard)
+// Replace with YOUR Supabase keys
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -36,5 +36,13 @@ export default function App() {
     return <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', fontSize: '18px', color: '#999'}}>Loading...</div>;
   }
 
-  return user ? <Dashboard user={user} supabase={supabase} /> : <Auth supabase={supabase} />;
+  return (
+    <div>
+      {!user ? (
+        <Auth supabase={supabase} />
+      ) : (
+        <Dashboard user={user} supabase={supabase} />
+      )}
+    </div>
+  );
 }
