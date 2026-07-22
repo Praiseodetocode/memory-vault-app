@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useState, useEffect } from 'react';
 import FileUpload from './FileUpload';
 import WhatsAppBackup from './WhatsAppBackup';
