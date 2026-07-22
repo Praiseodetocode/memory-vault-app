@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-export default function FileUpload({ session, supabase }) {
+export default function FileUpload({ user, supabase }) {
+
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -14,7 +15,8 @@ export default function FileUpload({ session, supabase }) {
 
       const fileExt = file.name.split('.').pop();
       const fileName = `${Math.random()}.${fileExt}`;
-      const filePath = `${session.user.id}/${fileName}`;
+      // Fixed: changed session.user.id to user.id
+      const filePath = `${user.id}/${fileName}`;
 
       const { error: uploadError } = await supabase.storage
         .from('vault-files')
